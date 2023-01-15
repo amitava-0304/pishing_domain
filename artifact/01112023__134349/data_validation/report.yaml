@@ -1,0 +1,167 @@
+data_drift_within_test_dataset:
+  directory_length:
+    pvalues: 0.9537489273703206
+    same_distribution: true
+  domain_length:
+    pvalues: 0.8606781388184851
+    same_distribution: true
+  file_length:
+    pvalues: 0.9537489273703206
+    same_distribution: true
+  length_url:
+    pvalues: 0.584977746520774
+    same_distribution: true
+  params_length:
+    pvalues: 0.9999999998928658
+    same_distribution: true
+  phishing:
+    pvalues: 1.0
+    same_distribution: true
+  qty_asterisk_directory:
+    pvalues: 0.9537489273703206
+    same_distribution: true
+  qty_dot_domain:
+    pvalues: 0.999981383371761
+    same_distribution: true
+  qty_dot_params:
+    pvalues: 1.0
+    same_distribution: true
+  qty_dot_url:
+    pvalues: 1.0
+    same_distribution: true
+  qty_equal_params:
+    pvalues: 1.0
+    same_distribution: true
+  qty_hyphen_directory:
+    pvalues: 0.9537489273703206
+    same_distribution: true
+  qty_hyphen_domain:
+    pvalues: 1.0
+    same_distribution: true
+  qty_hyphen_file:
+    pvalues: 0.9537489273703206
+    same_distribution: true
+  qty_hyphen_url:
+    pvalues: 0.9999999999999992
+    same_distribution: true
+  qty_percent_directory:
+    pvalues: 0.9537489273703206
+    same_distribution: true
+  qty_percent_params:
+    pvalues: 1.0
+    same_distribution: true
+  qty_percent_url:
+    pvalues: 1.0
+    same_distribution: true
+  qty_plus_directory:
+    pvalues: 0.9537489273703206
+    same_distribution: true
+  qty_plus_params:
+    pvalues: 1.0
+    same_distribution: true
+  qty_slash_url:
+    pvalues: 0.9537489273703206
+    same_distribution: true
+  qty_tld_url:
+    pvalues: 1.0
+    same_distribution: true
+  qty_underline_directory:
+    pvalues: 0.9537489273703206
+    same_distribution: true
+  qty_underline_params:
+    pvalues: 1.0
+    same_distribution: true
+  qty_underline_url:
+    pvalues: 1.0
+    same_distribution: true
+  qty_vowels_domain:
+    pvalues: 0.9896486162750795
+    same_distribution: true
+  time_domain_activation:
+    pvalues: 0.8217888941004877
+    same_distribution: true
+data_drift_within_train_dataset:
+  directory_length:
+    pvalues: 0.9999999999905871
+    same_distribution: true
+  domain_length:
+    pvalues: 0.999999984938066
+    same_distribution: true
+  file_length:
+    pvalues: 0.9999999999905871
+    same_distribution: true
+  length_url:
+    pvalues: 0.9999638400849725
+    same_distribution: true
+  params_length:
+    pvalues: 1.0
+    same_distribution: true
+  phishing:
+    pvalues: 1.0
+    same_distribution: true
+  qty_asterisk_directory:
+    pvalues: 0.9999999999905871
+    same_distribution: true
+  qty_dot_domain:
+    pvalues: 1.0
+    same_distribution: true
+  qty_dot_params:
+    pvalues: 1.0
+    same_distribution: true
+  qty_dot_url:
+    pvalues: 1.0
+    same_distribution: true
+  qty_equal_params:
+    pvalues: 1.0
+    same_distribution: true
+  qty_hyphen_directory:
+    pvalues: 0.9999999999905871
+    same_distribution: true
+  qty_hyphen_domain:
+    pvalues: 1.0
+    same_distribution: true
+  qty_hyphen_file:
+    pvalues: 0.9999999999905871
+    same_distribution: true
+  qty_hyphen_url:
+    pvalues: 1.0
+    same_distribution: true
+  qty_percent_directory:
+    pvalues: 0.9999999999905871
+    same_distribution: true
+  qty_percent_params:
+    pvalues: 1.0
+    same_distribution: true
+  qty_percent_url:
+    pvalues: 1.0
+    same_distribution: true
+  qty_plus_directory:
+    pvalues: 0.9999999999905871
+    same_distribution: true
+  qty_plus_params:
+    pvalues: 1.0
+    same_distribution: true
+  qty_slash_url:
+    pvalues: 0.9999999999905871
+    same_distribution: true
+  qty_tld_url:
+    pvalues: 1.0
+    same_distribution: true
+  qty_underline_directory:
+    pvalues: 0.9999999999905871
+    same_distribution: true
+  qty_underline_params:
+    pvalues: 1.0
+    same_distribution: true
+  qty_underline_url:
+    pvalues: 1.0
+    same_distribution: true
+  qty_vowels_domain:
+    pvalues: 0.9999999999999994
+    same_distribution: true
+  time_domain_activation:
+    pvalues: 0.9999999179391749
+    same_distribution: true
+missing_values_within_base_dataset: []
+missing_values_within_test_dataset: []
+missing_values_within_train_dataset: []

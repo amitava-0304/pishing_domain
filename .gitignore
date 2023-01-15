@@ -2,14 +2,10 @@
 __pycache__/
 *.py[cod]
 *$py.class
-artifact
+main.py
 # C extensions
 *.so
-prediction
-saved_models
 demotest.py
-logs
-artifacts
 raw_data
 # Distribution / packaging
 .Python
@@ -37,7 +33,10 @@ MANIFEST
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
 *.manifest
 *.spec
-
+.github/
+airflow/
+docker-compose.yaml
+Dockerfile
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
