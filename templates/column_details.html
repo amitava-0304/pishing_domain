@@ -1,0 +1,86 @@
+{% block head %}
+
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <title>Column Name</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      body{
+      text-align : center!important;
+      text-shadow: none!important;
+      box-shadow : none !important;
+      }
+      table,th,tr,td{
+        text-align: center;
+      }
+    </style>
+{% endblock %}
+
+{% block body %}
+<!--<br><br><br><br><br>-->
+ <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="masthead mb-5">
+    <div class="inner">
+      <h3 class="masthead-brand">Phishing Domain Detection</h3>
+      <nav class="nav nav-masthead justify-content-center">
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link active" href="/columns_details">Columns Details</a>
+        <a class="nav-link" href="/predict_main">Predictions</a>
+      <!--<a class = "nav-link" href="/add_csv.html">abc</a> -->
+  <!--    <a class = "nav-link" href = "/add_data">Add new data for training</a>-->
+      </nav>
+    </div>
+  </header>
+
+<main role="main" class="inner cover mt-5">
+    <h1 class="cover-heading">Columns needed to predict the Data</h1>
+    <p class="lead">
+        <table>
+            <tr>
+                <th>S.No</th>
+                <th>Attribute</th>
+                <th>Format</th>
+                <th>Description</th>
+            </tr>
+        {% for i in range(1,112,1) %}
+            <tr>
+                <td>{{i}}</td>
+                <td>{{keys[i]}}</td>
+                <td>{{ values[i] }}</td>
+                 <td><center>{{ description[i]}} </center></td>
+
+            </tr>
+        {% endfor %}
+
+        </table>
+    </p>
+    <!-- <p class="lead">
+      <a href="/predict_main" class="btn btn-lg btn-secondary">Predict Data</a>
+    </p>-->
+  </main>
+
+  <footer class="mastfoot mt-auto">
+
+  </footer>
+
+
+{% endblock %}

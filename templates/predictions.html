@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{%block head%}
+
+<title>Classify Websites as Phishing or Not Phishing </title>
+
+{%endblock%}
+
+
+{%block body%}
+
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-7 py-8">
+            <form action="/predictions" method="post">
+                
+                <label for="urls" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">URLS you want to check</label>
+                <textarea id="urls" rows="8" aria-describedby="helper-text-explanation" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="URLS, you want to check...." name="urls"></textarea>
+                <p id="helper-text-explanation" class="mt-2 text-sm text-gray-500 dark:text-gray-400">You can check multiple urls in one go. Add each url in new line.</p>
+                
+                <br> 
+                <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+            </form>
+            <br>
+            {% if context == None%}
+                <p></p>
+            {% elif context == -1%}
+                <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+                    <span class="font-medium">No model found!!</span> Hi, it seems that there is no model in production. Please run the pipeline atleast once.
+                </div>
+            {% else %}
+
+                <h1> Results: </h1>
+            
+                <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="py-3 px-6">
+                                    URL
+                                </th>
+                                <th scope="col" class="py-3 px-6">
+                                    Prediction
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in context.items()%}
+                            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    {{item[0]}}
+                                </th>
+                                <td class="py-4 px-6">
+                                    {{item[1]}}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                            
+                        </tbody>
+                    </table>
+                </div>
+            {% endif %}
+
+        </div>
+
+
+
+        
+        <div class="col-1"></div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+{%endblock%}

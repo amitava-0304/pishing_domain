@@ -1,8 +1,8 @@
 
-from sensor.pipeline.training_pipeline import start_training_pipeline
+from domain.pipeline.training_pipeline import start_training_pipeline
 
 
-file_path="/config/workspace/aps_failure_training_set1.csv"
+file_path="dataset_full.csv"
 print(__name__)
 if __name__=="__main__":
     try:

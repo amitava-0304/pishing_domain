@@ -1,0 +1,28 @@
+grid_search:
+  class: GridSearchCV
+  module: sklearn.model_selection
+  params:
+    cv: 3
+    verbose: 2
+model_selection:
+  module_0:
+    class: LogisticRegression
+    module: sklearn.linear_model
+    params:
+      fit_intecept: false
+    search_param_grid:
+      fit_intercept:
+      - true
+      - false
+  module_1:
+    class: RandomForestClassifier
+    module: sklearn.ensemble
+    params:
+      max_features: log2
+      min_samples_split: 6
+      n_estimators: 500
+    search_param_grid:
+      n_estimators:
+      - 10
+      - 100
+      - 200

@@ -1,0 +1,53 @@
+## Defining the different configurations assocaiated with different components
+training_pipeline_config:
+  pipeline_name: phishing_domain_detection
+  artifact_dir: artifacts
+
+data_ingestion_config:
+  dataset_dir: dataset
+  dataset_name: phishing_db.sqlite
+  table_name: phishing_full
+  top_features: ['directory_length', 'time_domain_activation', 'length_url',
+       'file_length', 'qty_slash_url', 'qty_plus_directory', 'domain_length',
+       'qty_vowels_domain', 'qty_asterisk_directory', 'qty_hyphen_directory',
+       'qty_dot_domain', 'qty_underline_directory', 'qty_percent_directory',
+       'qty_dot_url', 'qty_hyphen_url', 'qty_hyphen_file', 'qty_hyphen_domain',
+       'params_length', 'qty_underline_url', 'qty_tld_url', 'qty_plus_params',
+       'qty_percent_url', 'qty_equal_params', 'qty_dot_params',
+       'qty_percent_params', 'qty_underline_params','phishing']
+  ingested_dir: ingested_data
+  ingested_train_dir: train
+  ingested_test_dir: test  
+
+data_validation_config:
+  schema_dir: config
+  schema_file_name: schema.yaml
+  report_file_name: report.json
+  report_page_file_name: report.html 
+  
+
+
+data_transformation_config:
+  use_box_cox_transformation: false
+  tranformed_dir: transformed_data
+  transformed_train_dir: train
+  transformed_test_dir: test
+  preprocessing_dir: preprocessed
+  preprocessed_object_file_name: preprocessed.joblib
+
+
+model_trainer_config:
+  trained_model_dir: trained_model
+  model_file_name: model.joblib
+  scoring_parameter_for_grid_search_cv: "recall"
+  base_recall: 0.9
+  base_precision: 0.7
+  model_config_dir: config
+  model_config_file_name: model.yaml
+  custom_threshold: 0.3
+
+model_evaluation_config:
+  model_evaluation_file_name: model_evaluation.yaml
+
+model_pusher_config:
+  model_export_dir: saved_models

@@ -1,0 +1,32 @@
+columns:
+  directory_length: int64
+  domain_length: int64
+  file_length: int64
+  length_url: int64
+  params_length: int64
+  qty_asterisk_directory: int64
+  qty_dot_domain: int64
+  qty_dot_params: int64
+  qty_dot_url: int64
+  qty_equal_params: int64
+  qty_hyphen_directory: int64
+  qty_hyphen_domain: int64
+  qty_hyphen_file: int64
+  qty_hyphen_url: int64
+  qty_percent_directory: int64
+  qty_percent_params: int64
+  qty_percent_url: int64
+  qty_plus_directory: int64
+  qty_plus_params: int64
+  qty_slash_url: int64
+  qty_tld_url: int64
+  qty_underline_directory: int64
+  qty_underline_params: int64
+  qty_underline_url: int64
+  qty_vowels_domain: int64
+  time_domain_activation: int64
+
+target_column: phishing
+target_column_type: int64
+
+

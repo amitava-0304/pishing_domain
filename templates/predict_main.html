@@ -1,0 +1,105 @@
+{% block head %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <title>Prediction</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pricing.css') }}">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      body{
+      text-align: center !important;
+      background-image: url("gradient_2.jpg");
+      }
+      li{
+          color : black;
+      }
+      .div-1 {
+        background-color: #EBEBEB;
+    }
+    
+    .div-2 {
+    	background-color: #ABBAEA;
+    }
+    
+    .div-3 {
+    	background-color: #FBD603;
+    }
+    </style>
+{% endblock %}
+
+{% block body %}
+
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <div class="inner">
+          <h3 class="masthead-brand">Phishing Domain Detection</h3>
+          <nav class="nav nav-masthead justify-content-center">
+              <a class="nav-link" href="/">Home</a>
+              <a class="nav-link" href="/columns_details">Columns Details</a>
+              <a class="nav-link active" href="/predict_main">Predictions</a>
+              <!--<a class = "nav-link" href="/add_csv.html">abc</a> -->
+              <!--    <a class = "nav-link" href = "/add_data">Add new data for training</a>-->
+          </nav>
+        </div>
+      </header>
+
+      <main role="main" class="inner cover">
+        <h1 class="cover-heading mb-5">PREDICTION</h1>
+        <div class="card-deck mb-3 text-center">
+
+            <div class="card mb-4 shadow-sm">
+              <div class="card-header">
+                <h4 class="my-0 font-weight-normal"><b>Predict using dataset</b></h4>
+              </div>
+              <div class="card-body">
+                <!-- <h1 class="card-title pricing-card-title">$15 <small class="text-muted">/ mo</small></h1> -->
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>Upload .csv File only</li>
+                  <li>Check columns details from <a href = "#" style="color: black">here</a></li>
+                  <li>Total columns Required 111</li>
+
+                </ul>
+               <a href ="/predict_from_csv"> <button type="button" class="btn btn-lg btn-block btn-primary">Go to Dataset Webpage</button></a>
+              </div>
+            </div>
+            <div class="card mb-4 shadow-sm">
+              <div class="card-header">
+                <h4 class="my-0 font-weight-normal"><b>Predict using url</b></h4>
+              </div>
+              <div class="card-body">
+                <!-- <h1 class="card-title pricing-card-title">$29 <small class="text-muted">/ mo</small></h1> -->
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>Please  enter any link.</li>
+                  <li>It can tell whether the link is is malicious or real</li>
+
+                </ul>
+                <a href ="/predict_from_link"><button type="button" class="btn btn-lg btn-block btn-primary">Go to Link page</button></a>
+              </div>
+            </div>
+          </div>
+      </main>
+
+      <footer class="mastfoot mt-auto">
+
+      </footer>
+    </div>
+{% endblock %}

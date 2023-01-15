@@ -1,24 +1,29 @@
-import pymongo
 import pandas as pd
-import json
-
-from sensor.config import mongo_client
-
-DATA_FILE_PATH="/config/workspace/aps_failure_training_set1.csv"
-DATABASE_NAME="aps"
-COLLECTION_NAME="sensor"
+from pymongo import MongoClient
+from domain.config import mongo_client
 
 if __name__=="__main__":
-    df = pd.read_csv(DATA_FILE_PATH)
-    print(f"Rows and columns: {df.shape}")
+    # Load csv dataset
+    data = pd.read_csv('dataset_full.csv')
+    top_features= ['directory_length', 'time_domain_activation', 'length_url',
+       'file_length', 'qty_slash_url', 'qty_plus_directory', 'domain_length',
+       'qty_vowels_domain', 'qty_asterisk_directory', 'qty_hyphen_directory',
+       'qty_dot_domain', 'qty_underline_directory', 'qty_percent_directory',
+       'qty_dot_url', 'qty_hyphen_url', 'qty_hyphen_file', 'qty_hyphen_domain',
+       'params_length', 'qty_underline_url', 'qty_tld_url', 'qty_plus_params',
+       'qty_percent_url', 'qty_equal_params', 'qty_dot_params',
+       'qty_percent_params', 'qty_underline_params','phishing']
+    data = data[top_features]
+    # Connect to MongoDB
+    client =  mongo_client
 
-    #Convert dataframe to json so that we can dump these record in mongo db
-    df.reset_index(drop=True,inplace=True)
-
-    json_record = list(json.loads(df.T.to_json()).values())
-    print(json_record[0])
-    #insert converted json record to mongo db
-    mongo_client[DATABASE_NAME][COLLECTION_NAME].insert_many(json_record)
+    db = client['pishing_domain']
+    collection = db['pishing_detection']
+    data.reset_index(inplace=True)
+    data_dict = data.to_dict("records")
+    # Insert collection
+    collection.insert_many(data_dict)
+    print("Data Insertion Done....")
 
 
 

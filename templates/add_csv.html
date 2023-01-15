@@ -1,0 +1,14 @@
+{% block head %}
+<title>Add new Data</title>
+{% endblock %}
+
+{% block body %}
+    <a href = "/">Home</a>
+<!--    <a href = "/add_data">Add new data for training</a>-->
+    <a href = "/columns_details">Columns Details</a>
+    <a href = "/predict_main"> Prediction</a>
+<form action = '/add_data' method = 'POST' enctype="multipart/form-data">
+    <input type ="file" name = "csvfile" required><br>
+    <input type="submit" value = "submit">
+</form>
+{% endblock %}
