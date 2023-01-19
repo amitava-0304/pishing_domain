@@ -34,9 +34,12 @@ class DataTransformation:
             simple_imputer = SimpleImputer(strategy='median')
             robust_scaler =  RobustScaler()
             pipeline = Pipeline(steps=[
+                   ('RobustScaler',robust_scaler)
+                ])
+            '''pipeline = Pipeline(steps=[
                     ('Imputer',simple_imputer),
                     ('RobustScaler',robust_scaler)
-                ])
+                ])'''
             return pipeline
         except Exception as e:
             raise PishingException(e, sys)

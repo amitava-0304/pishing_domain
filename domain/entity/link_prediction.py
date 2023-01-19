@@ -41,7 +41,7 @@ class Prediction_from_link:
         else:
             return 1
 
-    def predict(self,url_list):
+    def predict(self,url_list:list[str]):
         try:
             print("Prediction from link started")
             '''checking_http = self.check_http()
@@ -54,10 +54,12 @@ class Prediction_from_link:
                 return test'''
             extractor = FeatureExtractor()
             features_from_url_df = extractor.generate_dataframe_from_urls(url_list)
-            x = features_from_url_df.copy()
-            x.to_csv("output.csv")
-        
-            output_file,pre,pre1 = start_batch_prediction(input_file_path='output.csv')
+            #x = features_from_url_df.copy()
+            #x.to_csv("output.csv")
+            #print(x)
+            #logging.info(x)
+            #output_file,pre,pre1 = start_batch_prediction(input_file_path='output.csv')
+            output_file,pre,pre1 = start_batch_prediction(input_file_path=features_from_url_df)
             print(output_file)
             print("Phishing")
             print(output_file)

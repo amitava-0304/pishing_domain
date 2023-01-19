@@ -2,7 +2,7 @@
 from domain.pipeline.training_pipeline import start_training_pipeline
 from domain.pipeline.batch_prediction import start_batch_prediction
 
-file_path="dataset_small.csv"
+file_path="dataset_full.csv"
 print(__name__)
 if __name__=="__main__":
      try:

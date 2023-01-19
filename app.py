@@ -8,7 +8,7 @@ from domain.pipeline.batch_prediction import start_batch_prediction
 from domain.logger import logging
 from domain.entity.uploadsValidation import Validation
 from domain.entity.json_values import Json_values
-from domain.entity.link_prediction import Prediction_from_link
+from domain.pipeline.url_prediction import Prediction_from_link
 from domain.entity.phishing_estimator import PhishingEstimator
 from domain.exception import PishingException
 from flask_cors import CORS,cross_origin
@@ -22,12 +22,12 @@ app = Flask(__name__)
 
 
 @app.route('/',methods = ['GET'])
-@cross_origin()
+#@cross_origin()
 def home_page():
     return render_template('home.html')
 
 @app.route('/columns_details',methods =['GET'])
-@cross_origin()
+#@cross_origin()
 def cols():
     print(ROOT_DIR)
     json_values_obj = Json_values(MODEL_CONFIG_FILE_PATH)
@@ -38,13 +38,13 @@ def cols():
     return render_template('column_details.html',values= values,keys = keys,description = description)
 
 @app.route('/predict_main',methods = ['GET'])
-@cross_origin()
+#@cross_origin()
 def prediction_main():
     return render_template('predict_main.html')
 
 
 @app.route('/predict_from_csv',methods =['GET','POST'])
-@cross_origin()
+#@cross_origin()
 def predict():
     if(request.method == 'GET'):
         return render_template('predict_from_csv.html')
@@ -68,19 +68,15 @@ def predict():
 
 
 @app.route('/predict_from_link',methods = ['GET','POST'])
-@cross_origin()
+#@cross_origin()
 def predict_from_link():
     if(request.method == 'GET'):
         return render_template('predict_from_link.html')
     elif(request.method == 'POST'):
         try:
             link = request.form.get("link")
-            link=link.rstrip(link[-1])
-            urls = link.split("\r\n")
-            urls = [url.strip() for url in urls]
-            print(urls)
-            predict_obj = Prediction_from_link(link)
-            phishing,pre,pre1 = predict_obj.predict(urls)
+            predict_obj = Prediction_from_link()
+            phishing,pre,pre1 = predict_obj.predict(link)
             print(phishing,pre,pre1)
             print("Phishing or not:" + str(phishing[0]))
 
@@ -91,24 +87,18 @@ def predict_from_link():
             print(e)
 
 @app.route('/download',methods = ['GET'])
-@cross_origin()
+#@cross_origin()
 def download_file():
     return send_file(output_file,as_attachment=True)
 
+#port =int(os.getenv("PORT",5001))
 
-'''@app.errorhandler(404)
-@cross_origin()
-def not_found(e):
-    return render_template('404.html')'''
-
-port =int(os.getenv("PORT",5001))
-
-if __name__ == '__main__':
+'''if __name__ == '__main__':
     host = '0.0.0.0'
     httpd = simple_server.make_server(host=host, port = port, app = app)
     print("http://localhost:5001/" )
     httpd.serve_forever()
-    #app.run()
+    app.run()'''
 
-'''if __name__ == '__main__':  # Script executed directly?
-    app.run(host="0.0.0.0",port=2000,debug=True)  # Launch built-in web server and run this Flask webapp'''
+if __name__ == '__main__':  # Script executed directly?
+    app.run(debug=True)  # Launch built-in web server and run this Flask webapp
