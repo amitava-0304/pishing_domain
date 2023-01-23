@@ -29,7 +29,6 @@ requests-file
 scikit-learn
 scipy
 six
-sklearn
 threadpoolctl
 tld
 tldextract
